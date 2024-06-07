@@ -3,11 +3,12 @@ from fastapi import FastAPI,Request
 import pandas as pd
 # import csv 
 import os.path as path
-from ledger import get_ledger_balance
+
+from app.ledger import get_ledger_balance
 
 app = FastAPI()
 
-filename = '../db/transaction.csv'
+filename = './db/transaction.csv'
 
 # helper functions to insert data into desired file - this can be reused in the future
 def create_new_file(input_df, filename):
@@ -42,26 +43,26 @@ def get_transaction_balance(account_id):
     return sum_of_transfers
 
 # update account - deposit
-@app.post("/deposit/")
-async def deposit(request: Request):
-    data = await request.json()
-    amt_int = int(data['amount'])
-    if amt_int <= 0:
-        raise ValueError("Amount should be positive")
-    input_df = pd.DataFrame(data,index=[0])
-    save_to_file(input_df,filename)
+# @app.post("/deposit/")
+# async def deposit(request: Request):
+#     data = await request.json()
+#     amt_int = int(data['amount'])
+#     if amt_int <= 0:
+#         raise ValueError("Amount should be positive")
+#     input_df = pd.DataFrame(data,index=[0])
+#     save_to_file(input_df,filename)
 
-# update account - withdraw
-@app.post("/withdraw/")
-async def withdraw(request: Request):
-    data = await request.json()
-    amt_int = int(data['amount'])
-    if amt_int <= 0:
-        raise ValueError("Amount should be positive")
+# # update account - withdraw
+# @app.post("/withdraw/")
+# async def withdraw(request: Request):
+#     data = await request.json()
+#     amt_int = int(data['amount'])
+#     if amt_int <= 0:
+#         raise ValueError("Amount should be positive")
 
-    data['amount'] = -amt_int
-    input_df = pd.DataFrame(data,index=[0])
-    save_to_file(input_df,filename)
+#     data['amount'] = -amt_int
+#     input_df = pd.DataFrame(data,index=[0])
+#     save_to_file(input_df,filename)
 
 # transfer
 @app.post("/transfer/")
@@ -90,7 +91,3 @@ async def transfer(request: Request):
     save_to_file(input_df,filename)
 
 
-
-
-
-# update account - withdrawal

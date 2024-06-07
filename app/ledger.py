@@ -8,12 +8,12 @@ import os.path as path
 
 app = FastAPI()
 
-filename = '../db/ledger.csv'
+filename = './db/ledger.csv'
 
 # helper functions to insert data into desired file - this can be reused in the future
 def create_new_file(input_df, filename):
     with open(filename, 'w') as f:
-        input_df.to_csv(filename, header=True, columns= ['ledger_id','ledger_type','sub_account_id','amount'],index=False)
+        input_df.to_csv(filename, header=True, columns= ['ledger_id','ledger_type','account_id','amount'],index=False)
     return True
 
 def save_to_file(input_df, filename):

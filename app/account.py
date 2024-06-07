@@ -2,15 +2,14 @@ from fastapi import FastAPI,Request
 import pandas as pd
 import csv 
 
-from ledger import get_ledger_balance
-from transaction import get_transaction_balance
+from app.ledger import get_ledger_balance
+from app.transaction import get_transaction_balance
+
 import os.path as path
 
 app = FastAPI()
 
-filename = '../db/account.csv'
-
-
+filename = './db/account.csv'
 
 # helper functions to insert data into desired file - this can be reused in the future
 def create_new_file(input_df, filename):

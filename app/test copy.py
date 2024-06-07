@@ -1,14 +1,22 @@
 import requests
 import uuid
-
 add_acc_url = 'http://0.0.0.0:8000/add_account'
 get_acc_url = 'http://0.0.0.0:8000/get_account_details_by_account_id'
+get_sub_acc_url = 'http://0.0.0.0:8000/get_sub_account_details_by_account_id'
 
-
+deposit_url = 'http://0.0.0.0:8001/deposit'
+withdraw_url = 'http://0.0.0.0:8001/withdraw'
 transfer_url = 'http://0.0.0.0:8001/transfer'
+
 
 ledger_deposit = 'http://0.0.0.0:8002/deposit'
 ledger_withdraw = 'http://0.0.0.0:8002/withdraw'
+ledger_transfer = 'http://0.0.0.0:8002/transfer'
+
+
+
+
+
 
 
 
@@ -31,6 +39,15 @@ ledger_withdraw = 'http://0.0.0.0:8002/withdraw'
 # print(x.text)
 
 
+# deposit
+# transaction_id = str(uuid.uuid4())
+# query_params = {'transaction_id':transaction_id,'sender':'bank','receiver':'abc','amount':100,'type':'deposit'}
+# y = requests.post(deposit_url, json = query_params)
+
+# withdraw 
+# transaction_id = str(uuid.uuid4())
+# query_params = {'transaction_id':transaction_id,'sender':'abc','receiver':'abcd','amount':100,'type':'withdrawal'}
+# y = requests.post(withdraw_url, json = query_params)
 
 # transfer - abc sends abcd
 # transaction_id = str(uuid.uuid4())
@@ -41,7 +58,6 @@ ledger_withdraw = 'http://0.0.0.0:8002/withdraw'
 # transaction_id = str(uuid.uuid4())
 # query_params = {'transaction_id':transaction_id,'sender':'abcd','receiver':'abc','amount':100,'type':'transfer'}
 # y = requests.post(transfer_url, json = query_params)
-
 
 
 
@@ -66,3 +82,4 @@ y = requests.post(ledger_deposit, json = query_params)
 
 
 
+# print(y.text)

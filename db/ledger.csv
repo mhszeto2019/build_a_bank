@@ -1,6 +1,2 @@
 ledger_id,ledger_type,account_id,amount
-
-ledger_4d4b9d4a-29ee-476f-bdc5-385880c520e1,deposit,abc,1000
-ledger_ba5544aa-8661-4705-b230-e31138c00ff3,deposit,abc,1000
-ledger_122cba3c-f48d-4caf-bd37-bf59266e1663,deposit,abc,1000
-ledger_ccda6a48-aceb-44c4-82ac-86b1ecc17c7d,withdraw,abc,-1000
+ledger_b1c9d2c0-7ef9-46f5-8d9e-f679a078e618,deposit,abc,1000
