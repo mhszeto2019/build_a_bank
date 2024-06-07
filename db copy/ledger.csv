@@ -1,4 +1,0 @@
-ledger_id,ledger_type,account_id,amount
-ledger_85e15755-e0df-4ac0-835a-0e4efa071fd5,deposit,abc,1000
-ledger_09590646-424d-4aeb-834e-9c22f0fa8230,withdraw,abc,-1000
-ledger_ce967d14-80c4-42fa-a2ab-e402c57dc709,deposit,abc,1000

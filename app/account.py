@@ -3,9 +3,10 @@ import pandas as pd
 import os.path as path
 import csv 
 
-from app.ledger import get_ledger_balance
-from app.transaction import get_transaction_balance
-from app.util import create_new_file,save_to_file,update_existing_file
+# from app.ledger import get_ledger_balance
+# from app.transaction import get_transaction_balance
+
+from app.util import create_new_file,save_to_file,update_existing_file,get_ledger_balance,get_transaction_balance
 
 
 app = FastAPI()
@@ -25,7 +26,7 @@ async def get_account_details_by_account_id(account_id: str):
         return balance
 
     except ValueError as ve:
-        return ve
+        return str(ve)
 
 
 @app.post("/add_account")
@@ -41,8 +42,7 @@ async def get_settlement_rates(request : Request):
                 raise ValueError("Account created")
         # append to db
         status = save_to_file(input_df,filename,['account_id','account_name'])
-        print(status)
         return status
 
     except ValueError as ve:
-        raise ve
+        return str(ve)

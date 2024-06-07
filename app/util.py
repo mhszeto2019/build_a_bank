@@ -35,4 +35,21 @@ def update_existing_file(input_df, filename,columns):
             return f"Failed to update to file: {str(e)}"
 
 
+def get_transaction_balance(account_id):
+    filename = './db/transaction.csv'
+    if not path.exists(filename):
+       return 0.0
 
+    existing_df = pd.read_csv(filename)
+    sum_of_transfers = existing_df[existing_df['receiver'] == account_id]['amount'].sum() - existing_df[existing_df['sender'] == account_id]['amount'].sum()
+    return float(sum_of_transfers)
+
+def get_ledger_balance(account_id):
+    filename = './db/ledger.csv'
+
+    if not path.exists(filename):
+        return 0.0
+    # amount - amount want to withdraw from account(account_id)
+    existing_df = pd.read_csv(filename)
+    sum_of_deposit_and_withdrawal = existing_df[existing_df['account_id'] == account_id]['amount'].sum()
+    return float(sum_of_deposit_and_withdrawal)

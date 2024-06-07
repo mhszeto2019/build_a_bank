@@ -27,27 +27,27 @@ ledger_withdraw = 'http://0.0.0.0:8002/withdraw'
 # print(x.text)
 
 # # get acccount
+query_params = {'account_id':'abc'}
+x = requests.get(get_acc_url, params = query_params)
+print(x.text)
+
 # query_params = {'account_id':'abcd'}
 # x = requests.get(get_acc_url, params = query_params)
 # print(x.text)
 
-# query_params = {'account_id':'abc'}
-# x = requests.get(get_sub_acc_url, params = query_params)
-
-# print(x.text)
-
-
 
 # transfer - abc sends abcd
-transaction_id = str(uuid.uuid4())
-query_params = {'transaction_id':transaction_id,'sender':'abc','receiver':'abcd','amount':500.23,'type':'transfer'}
-y = requests.post(transfer_url, json = query_params)
+# transaction_id = str(uuid.uuid4())
+# query_params = {'transaction_id':transaction_id,'sender':'abc','receiver':'abcd','amount':500,'type':'transfer'}
+# y = requests.post(transfer_url, json = query_params)
+# print(y.text)
+
 
 # transfer - abcd sends abc
 # transaction_id = str(uuid.uuid4())
-# query_params = {'transaction_id':transaction_id,'sender':'abcd','receiver':'abc','amount':500.23,'type':'transfer'}
+# query_params = {'transaction_id':transaction_id,'sender':'abcd','receiver':'abc','amount':0.23,'type':'transfer'}
 # y = requests.post(transfer_url, json = query_params)
-
+# print(y.text)
 
 
 
@@ -58,15 +58,16 @@ y = requests.post(transfer_url, json = query_params)
 # amount = 1000
 # query_params = {'ledger_id':'ledger_'+ledger_id,'ledger_type':ledger_type,'account_id':account_id,'amount':amount}
 # y = requests.post(ledger_deposit, json = query_params)
+# print(y.text)
 
 # ledger - withdraw 
 # ledger_id = str(uuid.uuid4())
 # ledger_type  = 'withdraw'
 # account_id = 'abc'
-# amount = 1000
+# amount = 500
 # query_params = {'ledger_id':'ledger_'+ledger_id,'ledger_type':ledger_type,'account_id':account_id,'amount':amount}
 # y = requests.post(ledger_withdraw, json = query_params)
-
+# print(y.text)
 
 
 

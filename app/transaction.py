@@ -9,13 +9,13 @@ app = FastAPI()
 
 filename = './db/transaction.csv'
 
-def get_transaction_balance(account_id):
-    if not path.exists(filename):
-       return 0.0
+# def get_transaction_balance(account_id):
+#     if not path.exists(filename):
+#        return 0.0
 
-    existing_df = pd.read_csv(filename)
-    sum_of_transfers = existing_df[existing_df['receiver'] == account_id]['amount'].sum() - existing_df[existing_df['sender'] == account_id]['amount'].sum()
-    return float(sum_of_transfers)
+#     existing_df = pd.read_csv(filename)
+#     sum_of_transfers = existing_df[existing_df['receiver'] == account_id]['amount'].sum() - existing_df[existing_df['sender'] == account_id]['amount'].sum()
+#     return float(sum_of_transfers)
 
 
 # transfer
@@ -37,15 +37,14 @@ async def transfer(request: Request):
             sum_of_transfers = existing_df[existing_df['receiver'] == sender]['amount'].sum() - existing_df[existing_df['sender'] == sender]['amount'].sum()
 
         amount_left = ledger_balance + sum_of_transfers
-        print(amount_left)
         if amount_left < amount:
             raise ValueError("Sender does not have enough fund to transfer")
     
         input_df = pd.DataFrame(data,index=[0])
 
         save_to_file(input_df,filename,['transaction_id','sender','receiver','amount','type'])
-        
+        return "Transfer from {} to {} was Successful".format(sender,data['receiver'])
     except ValueError as ve:
-        raise ve
+        return str(ve)
 
 
