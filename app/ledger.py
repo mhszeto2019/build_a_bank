@@ -48,10 +48,12 @@ def is_enough_to_withdraw(account_id,amount):
     return True
 
 def get_ledger_balance(account_id):
+    if not path.exists(filename):
+        return 0.0
     # amount - amount want to withdraw from account(account_id)
-    existing_df = pd.read_csv('../db/ledger.csv')
+    existing_df = pd.read_csv(filename)
     amt_sum_of_sub_account = existing_df[existing_df['account_id'] == account_id]['amount'].sum()
-    return amt_sum_of_sub_account
+    return float(amt_sum_of_sub_account)
 
 # update account - deposit
 @app.post("/deposit/")

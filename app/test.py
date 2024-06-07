@@ -22,8 +22,9 @@ ledger_withdraw = 'http://0.0.0.0:8002/withdraw'
 # x = requests.post(add_acc_url, json = myobj)
 
 # get acccount
-# query_params = {'account_id':'abcd'}
-# x = requests.get(get_acc_url, params = query_params)
+query_params = {'account_id':'abc'}
+x = requests.get(get_acc_url, params = query_params)
+print(x.text)
 
 # query_params = {'account_id':'abc'}
 # x = requests.get(get_sub_acc_url, params = query_params)
@@ -46,12 +47,12 @@ ledger_withdraw = 'http://0.0.0.0:8002/withdraw'
 
 
 # ledger - deposit
-ledger_id = str(uuid.uuid4())
-ledger_type  = 'deposit'
-account_id = 'abc'
-amount = 1000
-query_params = {'ledger_id':'ledger_'+ledger_id,'ledger_type':ledger_type,'account_id':account_id,'amount':amount}
-y = requests.post(ledger_deposit, json = query_params)
+# ledger_id = str(uuid.uuid4())
+# ledger_type  = 'deposit'
+# account_id = 'abc'
+# amount = 1000
+# query_params = {'ledger_id':'ledger_'+ledger_id,'ledger_type':ledger_type,'account_id':account_id,'amount':amount}
+# y = requests.post(ledger_deposit, json = query_params)
 
 # ledger - withdraw 
 # ledger_id = str(uuid.uuid4())

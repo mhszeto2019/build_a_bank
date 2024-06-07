@@ -18,7 +18,6 @@ def create_new_file(input_df, filename):
     return True
 
 def save_to_file(input_df, filename):
-    
     if path.isfile(filename) == True:
         ### append only if not exists, to avoid churning
         try:
@@ -43,10 +42,13 @@ def update_existing_file(input_df, filename):
 async def get_account_details_by_account_id(account_id: str):
     # any kind of further df manipulation can be done here
     try:
-        df = pd.read_csv('../db/account.csv')
-        print(df[df['account_id'] ==account_id])
+        df = pd.read_csv('./db/account.csv')
+        if account_id not in df[df['account_id'] == account_id].values:
+            raise ValueError("Account not found")
+      
         balance = get_ledger_balance(account_id) + get_transaction_balance(account_id)
-        print(balance)
+        return balance
+
     except FileNotFoundError:
         fieldnames = None
 
@@ -58,10 +60,10 @@ async def get_settlement_rates(request : Request):
     row = await request.json()
     input_df = pd.DataFrame(row,index=[0])
     account_id = row['account_id']
-    existing_df = pd.read_csv(filename)
-
-    if account_id in existing_df['account_id'].values:
-        raise ValueError("Account created")
+    if path.isfile(filename) == True:
+        existing_df = pd.read_csv(filename)
+        if account_id in existing_df['account_id'].values:
+            raise ValueError("Account created")
     # append to db
     save_to_file(input_df,filename)
     

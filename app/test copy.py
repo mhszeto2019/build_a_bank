@@ -15,12 +15,6 @@ ledger_transfer = 'http://0.0.0.0:8002/transfer'
 
 
 
-
-
-
-
-
-
 # add account
 # account_name = 'jared'
 # account_id = '323'
