@@ -1,11 +1,14 @@
 # build_a_bank
 ### Setup:
+1. Before proceeding to test locally, I have deployed the application on an EC2 instance on AWS and the postman file can be found below.
+OR
 1. Ensure python3 is downloaded
 2. Ensure that in home directory, there is an 'environments' folder which has a virtual environment called cdc_env created. E.g. (~/environments/cdc_env)
 3. We will use cdc_env as our virtual environment to ensure other packages are not conflicted. In order to do so, we enter "source ~/environments/cdc_env/bin/activate in the terminal to activate the environment
 4. Enter into the build_a_bank folder (~/build_a_bank) and install the necessary packages. In order to do so, we enter "pip install -r requirements.txt
 5. After installing the necessary packages, we can and run the applications by using the "start_all.sh" script.
 6. When all the tmux sessions are up, the application can be tested.
+
 
 ### Thought process:
 - This program is designed for integration with other aspects of the company, so the APIs are designed to be reusable.
@@ -24,6 +27,8 @@ We use the test_api.py script to conduct unittests for simple cases
 
 
 #### Stage two - scenario based test:
+##### For the scenario-based test,  I use POSTMAN to test the APIs and verify the updates in the respective CSV files. The POSTMAN collection can be found in the `build_a_bank` directory (`~/build_a_bank/postman_file`). The application is deployed on an AWS server, and the POSTMAN test cases are directed to that server.
+
 Account - we will be able to create accounts for users and can be seen in account.csv
 1. Add account with the following json
 json = {
@@ -94,4 +99,3 @@ json ={
 
 From these two checks, we are able to see that Colin has $200 and Bryan has $800 ($1000 - $200) after the transfer takes place
 
-Additional postman file to test the APIS is present in the the folder called postman_file. This postman file is to test the APIs that I have created and deployed on an AWS instance.
