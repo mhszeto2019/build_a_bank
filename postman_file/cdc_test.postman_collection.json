@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "b6738537-cf6e-4047-b886-21ea1e91eb63",
+		"name": "cdc_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12937746",
+		"_collection_link": "https://winter-robot-896537.postman.co/workspace/XBL_GATEWAY~04001995-e0ea-468f-bfa6-6ab2acc7ec5a/collection/12937746-b6738537-cf6e-4047-b886-21ea1e91eb63?action=share&source=collection_link&creator=12937746"
+	},
+	"item": [
+		{
+			"name": "add_account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ledger_id\": \"ledger_123\",\n  \"ledger_type\": \"deposit\",\n  \"account_id\": \"abc\",\n  \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.191.203.242:8000/get_account_details_by_account_id?account='abc'",
+					"protocol": "http",
+					"host": [
+						"18",
+						"191",
+						"203",
+						"242"
+					],
+					"port": "8000",
+					"path": [
+						"get_account_details_by_account_id"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "'abc'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check_account_balance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ledger_id\": \"ledger_123\",\n  \"ledger_type\": \"deposit\",\n  \"account_id\": \"abc\",\n  \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.191.203.242:8000/get_account_details_by_account_id?account='abc'",
+					"protocol": "http",
+					"host": [
+						"18",
+						"191",
+						"203",
+						"242"
+					],
+					"port": "8000",
+					"path": [
+						"get_account_details_by_account_id"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "'abc'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deposit_into_ledger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ledger_id\": \"ledger_123\",\n  \"ledger_type\": \"deposit\",\n  \"account_id\": \"abc\",\n  \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.191.203.242:8002/deposit",
+					"protocol": "http",
+					"host": [
+						"18",
+						"191",
+						"203",
+						"242"
+					],
+					"port": "8002",
+					"path": [
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "withdraw_from_ledger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ledger_id\": \"ledger_123\",\n  \"ledger_type\": \"withdraw\",\n  \"account_id\": \"abc\",\n  \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.191.203.242:8002/deposit",
+					"protocol": "http",
+					"host": [
+						"18",
+						"191",
+						"203",
+						"242"
+					],
+					"port": "8002",
+					"path": [
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transfer_from_abc_abcd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"transaction_id\": \"transfer_123\",\n  \"sender\": \"deposit\",\n  \"receiver\": \"abc\",\n  \"amount\": 100,\n  \"type\":\"transfer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.191.203.242:8001/transfer",
+					"protocol": "http",
+					"host": [
+						"18",
+						"191",
+						"203",
+						"242"
+					],
+					"port": "8001",
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
