@@ -18,13 +18,14 @@ filename = './db/account.csv'
 async def get_account_details_by_account_id(account_id: str):
     # any kind of further df manipulation can be done here
     try:
-        df = pd.read_csv('./db/account.csv')
-        if account_id not in df[df['account_id'] == account_id].values:
-            raise ValueError("Account not found")
-      
-        balance = get_ledger_balance(account_id) + get_transaction_balance(account_id)
-        return balance
+        if path.isfile(filename) == True:
+            df = pd.read_csv('./db/account.csv')
+            if account_id not in df[df['account_id'] == account_id].values:
+                raise ValueError("Account not found")
 
+            balance = get_ledger_balance(account_id) + get_transaction_balance(account_id)
+            return balance
+        raise ValueError("Account not found")
     except ValueError as ve:
         return str(ve)
 
