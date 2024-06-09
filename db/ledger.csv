@@ -1,0 +1,3 @@
+ledger_id,ledger_type,account_id,amount
+ledger_720958a4-4590-4abf-975f-d1f7144f820a,deposit,abc,2000
+ledger_81565ffe-c5bc-445a-af00-92b8f13df544,withdrawal,abc,-1000

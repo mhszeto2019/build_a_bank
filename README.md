@@ -1,5 +1,5 @@
 # build_a_bank
-Setup:
+<h1>Setup:</h1>
 1) Ensure Python is downloaded
 2) Ensure that in home directory, there is an 'environments' folder which has a virtual environment called cdc_env created (~/environments/cdc_env)
 3) We will use cdc_env as our virtual environment to ensure other packages are not conflicted. In order to do so, we enter "source ~/environments/cdc_env/bin/activate 
@@ -11,7 +11,10 @@ Setup:
 
 Testing process:
 Stage one - unittest:
-1) We use the test_api.py script to conduct unittests for simple cases
+We use the test_api.py script to conduct unittests for simple cases 
+1) Enter into the app directory
+2) Run "python -m unittest test_api.py" 
+
 
 Stage two - scenario based test:
 Account - there will be accounts for users
