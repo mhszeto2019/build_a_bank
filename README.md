@@ -40,8 +40,8 @@ query_params = {"account_id":"abcd"}
 
 Similarly, we can tell that Colin has $0 in the bank
 
-
 Ledger - withdrawal and deposit will be done in the ledger
+
 5. Test withdrawal 
 json = {
   "ledger_id": "ledger_123",
@@ -79,9 +79,8 @@ json ={
 }
 
 9. Check account balance of Colin and Bryan
-query_params = {"account_id":"abcd"}
-
-query_params = {"account_id":"abc"}
+- query_params = {"account_id":"abcd"}
+- query_params = {"account_id":"abc"}
 
 From these two checks, we are able to see that Colin has $200 and Bryan has $800 ($1000 - $200) after the transfer takes place
 
