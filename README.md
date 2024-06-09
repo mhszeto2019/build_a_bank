@@ -1,7 +1,7 @@
 # build_a_bank
 Setup:
 1. Ensure Python is downloaded
-2. Ensure that in home directory, there is an 'environments' folder which has a virtual environment called cdc_env created (~/environments/cdc_env.
+2. Ensure that in home directory, there is an 'environments' folder which has a virtual environment called cdc_env created (~/environments/cdc_env)
 3. We will use cdc_env as our virtual environment to ensure other packages are not conflicted. In order to do so, we enter "source ~/environments/cdc_env/bin/activate 
 4. Enter into the build_a_bank folder and install the necessary packages. In order to do so, we enter "pip install -r requirements.txt
 
